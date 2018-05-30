@@ -76,5 +76,30 @@ Example - Solution
     }
     
 ```
+# Open Closed
+Classes, methods, properties etc. should be open to extension but not midification. Code in a way that you can add new behviour without 
+changing code
+
+Example - Problem
+
+```csharp
+        public void ReadText(string line)
+        {
+            dynamic lineArray;
+
+            if (line.StartsWith("("))
+            {
+                // Do parethesis stuff
+            }
+            else if (line.StartsWith("<"))
+            {
+                // do xml or html stuff
+            }
+            else if (line.StartsWith("{"))
+            {
+                // do json stuff
+            }
+        }
+```
 
 
