@@ -6,7 +6,21 @@ Overview of what I learned about the SOLID Pricipals
 Classes should only be doing one thing. Meaning there should only be one reason for the class to change.
 
 Example
+
 ```csharp
+/* @"(Name)John Doe
+                                    (Age)20
+                                    (City)Ashtabula, OH
+                                    (Flags)NYN
+
+                                    (Name)Jane Doe
+                                    (Flags)YNY
+                                    (City)N Kingsville, OH
+
+                                    (Name)Sally Jones
+                                    (Age)25
+                                    (City)Paris
+                                    (Flags)YYY"; */
 public class TextToPersonMapper
     {
         public void ReadText()
