@@ -57,11 +57,21 @@ Example - Solution
         }
     }
     
-        public class TextWriter : IWriter
+    public class TextWriter : IWriter
     {
         public void WriteText()
         {
 
+        }
+    }
+    
+    public class TextToPersonMapper
+    {
+      // Inject Text Reader and OutputWriter
+        public void MapTextToPerson()
+        {
+           var text  = textReader.ReadText();
+           outputWriter.WriteText();
         }
     }
     
