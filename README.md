@@ -83,7 +83,7 @@ changing code
 Example - Problem
 
 ```csharp
-        public void ReadText(string line)
+        public void ParseText(string line)
         {
             dynamic lineArray;
 
