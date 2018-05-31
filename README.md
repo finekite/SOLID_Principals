@@ -47,6 +47,7 @@ There are many reasons the TextToPersonMapper class can change
 3) Business wants the output format to change
 
 Example - Solution
+
 Here we seperate the reading functions and writing functions to seperate classes. Now if changes are needed in one are it will be easy to implement.
 ```csharp
     public class TextReader : IReader
