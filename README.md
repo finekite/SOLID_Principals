@@ -81,6 +81,8 @@ Here we seperate the reading functions and writing functions to seperate classes
 Classes, methods, properties etc. should be open to extension but not modification. Code in a way that you can add new behaviour without changing code. The way I understand it is with a house analogy. If you need to fix a bad pipe in your house you should not take apart your house just to fix the pipe. Also, if you follow SRP then you're most likely to follow the open/closed principle as well
 
 Example - Problem
+
+This class needs to determine the input type of a text so it can parse it correctly. There are different ways to parse it depending on what kind of text it is. Also, each text has its own set of rules with multiple if conditions. If we need to make a change to this class it gets very complicated and bugs can be introduced.
 ```csharp
         public void ParseText(string line)
         {
