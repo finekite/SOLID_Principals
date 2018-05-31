@@ -134,4 +134,64 @@ Create different parser classes that will handle each text differntley. All pars
             }
         }
   ```
-# Liskov Principal
+# Liskov
+
+When using inheritance try thinking if the derived class is a substitute of the base class. Often times the derived class can still be defined as a 'IS A' of the parent but it still lacks certain capabilities that the parent has and therefore cannot be substituted.
+
+Example - Problem
+
+```csharp
+    public class Vehicle
+    {
+        void Drive()
+        {
+
+        }
+
+        void PlayRadio()
+        {
+
+        }
+    }
+
+    public class Car  :  Vehicle
+    {
+        // Can Drive() and PlayRadio()
+    }
+
+    public class Scooter  :  Vehicle
+    {
+        // Can Drive() but cannot PlayRadio()
+    }
+```
+A Scooter is a vehicle but it still cannot play radio
+
+Example - Solution
+
+In this solution, we added an Automobile class and derive Car from it. Now we can take out PlayRadio() and stick it in Automobile.
+
+This now accomplishes 2 things
+1) Car IS A substitute for Automobile
+2) Scooter IS A substitute for Vehicle
+```csharp
+    public class Vehicle
+    {
+        void Drive()
+        {
+
+        }
+    }
+
+    public class Automobile: Vehicle
+    {
+        void PlayRadio()
+        {
+
+        }
+    }
+
+    public class Scooter: Vehicle
+    {
+        
+    }
+```
