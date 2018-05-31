@@ -209,7 +209,7 @@ Typically we're just interested in mocking the HttpContextBase class for one or 
 
 Example  - Solution
 
-Create a class or interface that inherits from HttpContext but only utilizes the one or two properties/methods you need for your testing. 
+Create a class or interface that inherits from HttpContext but only utilizes the one or two properties/methods you need for your testing.
 
 ```csharpt
  public class HttpContextBaseHelper : HttpContextBase
@@ -257,5 +257,9 @@ Create a class or interface that inherits from HttpContext but only utilizes the
             }
         }
 ```
+Now instead of of mocking the entire HttpContextBaseClass you can just call the helper class
 
+```csharp
+HttpContextBaseHelper context = new HttpContextBaseHelper(principal);
+```
 
