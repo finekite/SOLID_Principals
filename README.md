@@ -76,8 +76,6 @@ Example - Solution
 
 Classes, methods, properties etc. should be open to extension but not modification. Code in a way that you can add new behaviour without changing code. The way I understand it is with a house analogy. If you need to fix a bad pipe in your house you should not take apart your house just to fix the pipe. Also, if you follow SRP then you're most likely to follow the open/closed principle as well
 
-![alt text](https://github.com/finekite/SOLID_Principals/blob/master/ParserPic.PNG)
-
 Example - Problem
 ```csharp
         public void ParseText(string line)
@@ -130,6 +128,10 @@ Create a class that determines the input type
     }
 ```
 Create different parser classes that will handle each text differntley. All parser classes will inherit from a base parser class that will do the parser work common to all parsings. Use dpendency injection to serve up the right Parser
+
+
+![alt text](https://github.com/finekite/SOLID_Principals/blob/master/ParserPic.PNG)
+
 ```csharp
 // Ideally this would be done differently if it was in a DI container
  private void GetParserInstance()
