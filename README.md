@@ -1,13 +1,10 @@
 # SOLID_Principals
-Overview of what I learned about the SOLID Pricipals
+Overview of what I learned about the SOLID Principles
 
-
-# Single Responsibilty
+Single Responsibility
 Classes should only be doing one thing. Meaning there should only be one reason for the class to change.
 
-Example - Problem
-Here is some text that has person information. The code below reads the text, parses it and maps the information to a person object. Once the information is mapped is outputs it in a specific format.
-
+Example - Problem Here is some text that has person information. The code below reads the text, parses it and maps the information to a person object. Once the information is mapped is outputs it in a specific format.
 ```csharp
 /* @"(Name)John Doe
                                     (Age)20
@@ -41,14 +38,13 @@ public class TextToPersonMapper
         }
     }
 ```
-
 There are many reasons class can change
-1) Incoming text format will change
-2) More fields/info will be added to the text
-3) Business wants the output format to change
+
+Incoming text format will change
+More fields/info will be added to the text
+Business wants the output format to change
 
 Example - Solution
-
 ```csharp
     public class TextReader : IReader
     {
@@ -75,14 +71,12 @@ Example - Solution
            outputWriter.WriteText(person);
         }
     }
-    
-```
+```    
 # Open Closed
-Classes, methods, properties etc. should be open to extension but not midification. Code in a way that you can add new behviour without 
-changing code. The way I understand it is with a house analogy. If you need to fix a bad pipe in your house you should not take apart your house just to fix the pipe. Also, if you follow SRP then you're most likely to follow the open/closed pricipal as well
+
+Classes, methods, properties etc. should be open to extension but not modification. Code in a way that you can add new behaviour without changing code. The way I understand it is with a house analogy. If you need to fix a bad pipe in your house you should not take apart your house just to fix the pipe. Also, if you follow SRP then you're most likely to follow the open/closed principle as well
 
 Example - Problem
-
 ```csharp
         public void ParseText(string line)
         {
@@ -104,11 +98,10 @@ Example - Problem
                 // do json stuff
             }
         }
-```
+```        
 Example - Solution
 
-Create class that determines the input type
-
+Create a class that determines the input type
 ```csharp
  public class InputTypeDeterminator
     {
@@ -135,9 +128,8 @@ Create class that determines the input type
     }
 ```
 Create different parser classes that will handle each text differntley. All parser classes will inherit from a base parser class that will do the parser work common to all parsings. Use dpendency injection to serve up the right Parser
-
 ```csharp
-// Idealy this would be done differently if it was in a DI conatainer
+// Ideally this would be done differently if it was in a DI container
  private void GetParserInstance()
         {
             if (inputType.Equals(InputType.XML))
@@ -153,8 +145,5 @@ Create different parser classes that will handle each text differntley. All pars
                 parser = new ParenthesesParser();
             }
         }
-```
-
+  ```
 # Liskov Principal
-
-
