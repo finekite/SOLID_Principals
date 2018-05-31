@@ -195,3 +195,12 @@ This now accomplishes 2 things
         
     }
 ```
+# Interface Segregation
+
+Try to make your interfaces small so that whatever code is using it (aka client code) uses all of it.
+
+Example - Problemt
+Many unit tests will mock the HttpContext class. If you look at the source code for the HttpContext class you will see it is quite large.
+
+
+
