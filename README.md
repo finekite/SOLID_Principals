@@ -140,6 +140,8 @@ Create different parser classes that will handle each text differntley. All pars
             }
         }
   ```
+  Now that we broke out each parser to its own class we can safely say each class is open to extension but not to modification.
+  
 # Liskov
 
 When using inheritance try thinking if the derived class is a substitute of the base class. Often times the derived class can still be defined as a 'IS A' of the parent but it still lacks certain capabilities that the parent has and therefore cannot be substituted.
