@@ -4,7 +4,9 @@ Overview of what I learned about the SOLID Principles
 # Single Responsibility
 Classes should only be doing one thing. Meaning there should only be one reason for the class to change.
 
-Example - Problem Here is some text that has person information. The code below reads the text, parses it and maps the information to a person object. Once the information is mapped is outputs it in a specific format.
+Example - Problem 
+
+Here is some text that has person information. The code below reads the text, parses it and maps the information to a person object. Once the information is mapped is outputs it in a specific format.
 ```csharp
 /* @"(Name)John Doe
                                     (Age)20
@@ -45,6 +47,7 @@ There are many reasons the TextToPersonMapper class can change
 3) Business wants the output format to change
 
 Example - Solution
+Here we seperate the reading functions and writing functions to seperate classes. Now if changes are needed in one are it will be easy to implement.
 ```csharp
     public class TextReader : IReader
     {
