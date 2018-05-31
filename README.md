@@ -1,7 +1,7 @@
 # SOLID_Principals
 Overview of what I learned about the SOLID Principles
 
-Single Responsibility
+# Single Responsibility
 Classes should only be doing one thing. Meaning there should only be one reason for the class to change.
 
 Example - Problem Here is some text that has person information. The code below reads the text, parses it and maps the information to a person object. Once the information is mapped is outputs it in a specific format.
