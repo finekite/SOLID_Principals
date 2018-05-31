@@ -76,6 +76,8 @@ Example - Solution
 
 Classes, methods, properties etc. should be open to extension but not modification. Code in a way that you can add new behaviour without changing code. The way I understand it is with a house analogy. If you need to fix a bad pipe in your house you should not take apart your house just to fix the pipe. Also, if you follow SRP then you're most likely to follow the open/closed principle as well
 
+![Screenshot](ParserPic.png)
+
 Example - Problem
 ```csharp
         public void ParseText(string line)
