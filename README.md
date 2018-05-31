@@ -286,4 +286,105 @@ Now instead of of mocking the entire HttpContextBaseClass you can just call the 
 ```csharp
 HttpContextBaseHelper context = new HttpContextBaseHelper(principal);
 ```
+# Dependency Inversion
 
+High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details.  Details should depend upon abstractions.
+You do not want your higher level class to depend on lower level classes. This makes your classes very dependent on each other and if you need to change something down the road you're gonna have to change every single class.
+
+Example  - Problem
+
+```csharp
+    class Repository
+    {
+
+    }
+
+    class Service
+    {
+        public Service()
+        {
+            Repository repo = new Repository();
+        }
+
+        void DoStuffWithRepository()
+        {
+
+        }
+    }
+
+    class Controller
+    {
+        public Controller()
+        {
+            Service service = new Service();
+        }
+
+        void DoStuffWithService()
+        {
+
+        }
+    }
+```
+In this example, if you change things in the repository you might not only break your service but even the controller. This is because each class is dependent on each other.
+
+Example - Solution
+
+Create abstract classes or interfaces for each layer and let your classes depend on the abstracted classes instead of the concrete ones. Use DI to create instances of your specific concrete classes you need.
+
+```csharp
+    class Repository : IRepository
+    {
+
+    }
+
+    class Service : IService
+    {
+        public IRepository repository;
+
+        public Service(IRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        void DoStuffWithRepository()
+        {
+
+        }
+    }
+
+    class Controller
+    {
+        public IService service;
+
+        public Controller(IService service)
+        {
+            this.service = service;
+        }
+
+        void DoStuffWithService()
+        {
+
+        }
+    }
+
+    class DIContainer
+    {
+        void StartApplication()
+        {
+            var repository = new Repository();
+            var service = new Service(repository);
+            var controller = new Controller(service);
+            StartProgram(controller);
+        }
+    }
+
+    interface IRepository
+    {
+
+    }
+
+    interface IService
+    {
+
+    }
+```
