@@ -256,6 +256,7 @@ Create a class or interface that inherits from HttpContext but only utilizes the
                 return new HttpResponseBaseHelper();
             }
         }
+      }
 ```
 Now instead of of mocking the entire HttpContextBaseClass you can just call the helper class
 
