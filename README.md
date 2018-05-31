@@ -200,7 +200,9 @@ This now accomplishes 2 things
 Try to make your interfaces small so that whatever code is using it (aka client code) uses all of it.
 
 Example - Problemt
-Many unit tests will mock the HttpContext class. If you look at the source code for the HttpContext class you will see it is quite large.
+Many unit tests will mock the HttpContext class. If you look at the source code for the HttpContext class you will see it is quite large with many of the methods not implemented.
+
+![alt text](https://github.com/finekite/SOLID_Principals/blob/master/ParserPic.PNG)
 
 
 
