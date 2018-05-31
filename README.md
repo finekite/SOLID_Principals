@@ -211,8 +211,8 @@ Example  - Solution
 
 Create a class or interface that inherits from HttpContext but only utilizes the one or two properties/methods you need for your testing.
 
-```csharpt
- public class HttpContextBaseHelper : HttpContextBase
+```csharp
+    public class HttpContextBaseHelper : HttpContextBase
     {
         /// <summary>
         /// The user
@@ -255,6 +255,29 @@ Create a class or interface that inherits from HttpContext but only utilizes the
             {
                 return new HttpResponseBaseHelper();
             }
+        }
+
+        /// <summary>
+        /// overrides the server base
+        /// </summary>
+        public override HttpServerUtilityBase Server
+        {
+            get
+            {
+                return new HttpServerUtilityBaseHelper();
+            }
+        }
+
+
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="principal">the principal</param>
+        /// <param name="addWebHeader">whether to add a web header</param>
+        public HttpContextBaseHelper(IPrincipal principal = null, bool addWebHeader = true)
+        {
+            Principal = principal;
+            RequestBaseHelper = new HttpRequestBaseHelper(addWebHeadline: addWebHeader);
         }
     }
 ```
