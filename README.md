@@ -38,7 +38,7 @@ public class TextToPersonMapper
         }
     }
 ```
-There are many reasons class can change
+There are many reasons the TextToPersonMapper class can change
 
 1) Incoming text format will change
 2) More fields/info will be added to the text
