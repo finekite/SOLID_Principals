@@ -40,9 +40,9 @@ public class TextToPersonMapper
 ```
 There are many reasons class can change
 
-Incoming text format will change
-More fields/info will be added to the text
-Business wants the output format to change
+1) Incoming text format will change
+2) More fields/info will be added to the text
+3) Business wants the output format to change
 
 Example - Solution
 ```csharp
