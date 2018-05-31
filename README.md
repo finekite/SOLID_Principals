@@ -134,10 +134,10 @@ Create class that determines the input type
         }
     }
 ```
-Create different classes that will handle each text differntley and use dpendency injection to serve up the right Parser
+Create different parser classes that will handle each text differntley. All parser classes will inherit from a base parser class that will do the parser work common to all parsings. Use dpendency injection to serve up the right Parser
 
 ```csharp
-
+// Idealy this would be done differently if it was in a DI conatainer
  private void GetParserInstance()
         {
             if (inputType.Equals(InputType.XML))
@@ -154,5 +154,7 @@ Create different classes that will handle each text differntley and use dpendenc
             }
         }
 ```
+
+# Liskov Principal
 
 
