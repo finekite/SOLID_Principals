@@ -134,10 +134,10 @@ Create class that determines the input type
         }
     }
 ```
-Create different classes that will handle each text differntley 
+Create different classes that will handle each text differntley and use dpendency injection to serve up the right Parser
+
 ```csharp
 
-// This can and really should be done through dependecny injection
  private void GetParserInstance()
         {
             if (inputType.Equals(InputType.XML))
