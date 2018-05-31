@@ -48,7 +48,7 @@ There are many reasons the TextToPersonMapper class can change
 
 Example - Solution
 
-Here we seperate the reading functions and writing functions to seperate classes. Now if changes are needed in one are it will be easy to implement.
+Here we seperate the reading functions and writing functions to seperate classes. Now if changes are needed in one area it will be easy to implement.
 ```csharp
     public class TextReader : IReader
     {
