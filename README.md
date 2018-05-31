@@ -199,11 +199,63 @@ This now accomplishes 2 things
 
 Try to make your interfaces small so that whatever code is using it (aka client code) uses all of it.
 
-Example - Problemt
-Many unit tests will mock the HttpContext class. If you look at the source code for the HttpContext class you will see it is quite large with many of the methods not implemented.
+Example - Problem
+
+Many unit tests will mock the HttpContextBase class. If you look at the source code for the HttpContext class you will see it is quite large with many of the methods not implemented.
 
 ![alt text](https://github.com/finekite/SOLID_Principals/blob/master/HttpContextPic.PNG)
 
+Typically we're just interested in mocking the HttpContextBase class for one or two reasons and we do not need any of the other methods from the HttpContextBase class. Mocking up an entire HttpContextBase class would violate this principle.
 
+Example  - Solution
+
+Create a class or interface that inherits from HttpContext but only utilizes the one or two properties/methods you need for your testing. 
+
+```csharpt
+ public class HttpContextBaseHelper : HttpContextBase
+    {
+        /// <summary>
+        /// The user
+        /// </summary>
+        public IPrincipal Principal {get; set;}
+
+        /// <summary>
+        /// the request base helper
+        /// </summary>
+        public HttpRequestBaseHelper RequestBaseHelper {get ; set;}
+
+        /// <summary>
+        /// overrides the request to return the HttpRequestBaseHelper instead of the actual HttpRequestBase class
+        /// </summary>
+        public override HttpRequestBase Request 
+        {
+            get
+            {
+                return RequestBaseHelper;
+            }
+        }
+
+        /// <summary>
+        /// The user
+        /// </summary>
+        public override IPrincipal User
+        {
+            get
+            {
+                return Principal;
+            }
+        }
+
+        /// <summary>
+        /// overrides the response
+        /// </summary>
+        public override HttpResponseBase Response
+        {
+            get
+            {
+                return new HttpResponseBaseHelper();
+            }
+        }
+```
 
 
