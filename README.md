@@ -86,8 +86,6 @@ This class needs to determine the input type of a text so it can parse it correc
 ```csharp
         public void ParseText(string line)
         {
-            dynamic lineArray;
-
             if (line.StartsWith("("))
             {
                 //multiple if conditions inside here
